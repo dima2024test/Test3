@@ -26,7 +26,7 @@
         <picklistObject>Case</picklistObject>
     </dynamicChoiceSets>
     <interviewLabel>Subflow : Create Case record {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>Subflow : Create Opp record</label>
+    <label>Subflow : Create Case record</label>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -47,47 +47,52 @@
     </processMetadataValues>
     <processType>Flow</processType>
     <recordCreates>
-        <name>Create_Opp_Record</name>
-        <label>Create Opp Record</label>
+        <name>Create_Case_Record</name>
+        <label>Create Case Record</label>
         <locationX>176</locationX>
         <locationY>242</locationY>
+        <assignRecordIdToReference>varCaseId</assignRecordIdToReference>
         <faultConnector>
             <targetReference>SubFlow_Erro_Flow</targetReference>
         </faultConnector>
         <inputAssignments>
-            <field>CloseDate</field>
+            <field>Subject</field>
+            <value>
+                <elementReference>Subject</elementReference>
+            </value>
         </inputAssignments>
-        <inputAssignments>
-            <field>Name</field>
-        </inputAssignments>
-        <inputAssignments>
-            <field>StageName</field>
-        </inputAssignments>
-        <object>Opportunity</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
+        <object>Case</object>
     </recordCreates>
     <screens>
-        <name>Opp_Information</name>
-        <label>Opp Information</label>
+        <name>Case_Information</name>
+        <label>Case Information</label>
         <locationX>176</locationX>
         <locationY>134</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>Create_Opp_Record</targetReference>
+            <targetReference>Create_Case_Record</targetReference>
         </connector>
         <fields>
-            <name>Opp_Information_Section1</name>
+            <name>Case_Information_Section1</name>
             <fieldType>RegionContainer</fieldType>
             <fields>
-                <name>Opp_Information_Section1_Column1</name>
+                <name>Case_Information_Section1_Column1</name>
                 <fieldType>Region</fieldType>
                 <fields>
-                    <name>Opp_Name</name>
+                    <name>Subject</name>
                     <dataType>String</dataType>
-                    <fieldText>Opp Name</fieldText>
+                    <fieldText>Subject</fieldText>
                     <fieldType>InputField</fieldType>
+                    <isRequired>true</isRequired>
+                </fields>
+                <fields>
+                    <name>Priority</name>
+                    <choiceReferences>varCasePriority</choiceReferences>
+                    <dataType>String</dataType>
+                    <fieldText>Priority</fieldText>
+                    <fieldType>DropdownBox</fieldType>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -141,21 +146,22 @@
                 <isRequired>false</isRequired>
             </fields>
             <fields>
-                <name>Opp_Information_Section1_Column2</name>
+                <name>Case_Information_Section1_Column2</name>
                 <fieldType>Region</fieldType>
                 <fields>
-                    <name>Stage</name>
+                    <name>Status</name>
                     <choiceReferences>varCaseStatus</choiceReferences>
                     <dataType>String</dataType>
-                    <fieldText>Stage</fieldText>
+                    <fieldText>Status</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
-                    <name>Close_Date</name>
-                    <dataType>Date</dataType>
-                    <fieldText>Close Date</fieldText>
-                    <fieldType>InputField</fieldType>
+                    <name>Case_Origin</name>
+                    <choiceReferences>varCaseOrigin</choiceReferences>
+                    <dataType>String</dataType>
+                    <fieldText>Case Origin</fieldText>
+                    <fieldType>DropdownBox</fieldType>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -210,6 +216,12 @@
             </fields>
             <isRequired>false</isRequired>
         </fields>
+        <fields>
+            <name>Description</name>
+            <fieldText>Description</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
@@ -217,7 +229,7 @@
         <locationX>50</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Opp_Information</targetReference>
+            <targetReference>Case_Information</targetReference>
         </connector>
     </start>
     <status>Active</status>
