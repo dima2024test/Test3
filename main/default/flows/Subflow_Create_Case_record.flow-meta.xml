@@ -26,7 +26,7 @@
         <picklistObject>Case</picklistObject>
     </dynamicChoiceSets>
     <interviewLabel>Subflow : Create Case record {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>Subflow : Create Case record</label>
+    <label>Subflow : Create Opp record</label>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -47,88 +47,47 @@
     </processMetadataValues>
     <processType>Flow</processType>
     <recordCreates>
-        <name>Create_Case_Record</name>
-        <label>Create Case Record</label>
+        <name>Create_Opp_Record</name>
+        <label>Create Opp Record</label>
         <locationX>176</locationX>
         <locationY>242</locationY>
-        <assignRecordIdToReference>varCaseId</assignRecordIdToReference>
         <faultConnector>
             <targetReference>SubFlow_Erro_Flow</targetReference>
         </faultConnector>
         <inputAssignments>
-            <field>AccountId</field>
-            <value>
-                <elementReference>Account.recordId</elementReference>
-            </value>
+            <field>CloseDate</field>
         </inputAssignments>
         <inputAssignments>
-            <field>ContactId</field>
-            <value>
-                <elementReference>Contact.recordId</elementReference>
-            </value>
+            <field>Name</field>
         </inputAssignments>
         <inputAssignments>
-            <field>Description</field>
-            <value>
-                <elementReference>Description</elementReference>
-            </value>
+            <field>StageName</field>
         </inputAssignments>
-        <inputAssignments>
-            <field>Origin</field>
-            <value>
-                <elementReference>Case_Origin</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Priority</field>
-            <value>
-                <elementReference>Priority</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Status</field>
-            <value>
-                <elementReference>Status</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Subject</field>
-            <value>
-                <elementReference>Subject</elementReference>
-            </value>
-        </inputAssignments>
-        <object>Case</object>
+        <object>Opportunity</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <screens>
-        <name>Case_Information</name>
-        <label>Case Information</label>
+        <name>Opp_Information</name>
+        <label>Opp Information</label>
         <locationX>176</locationX>
         <locationY>134</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>Create_Case_Record</targetReference>
+            <targetReference>Create_Opp_Record</targetReference>
         </connector>
         <fields>
-            <name>Case_Information_Section1</name>
+            <name>Opp_Information_Section1</name>
             <fieldType>RegionContainer</fieldType>
             <fields>
-                <name>Case_Information_Section1_Column1</name>
+                <name>Opp_Information_Section1_Column1</name>
                 <fieldType>Region</fieldType>
                 <fields>
-                    <name>Subject</name>
+                    <name>Opp_Name</name>
                     <dataType>String</dataType>
-                    <fieldText>Subject</fieldText>
+                    <fieldText>Opp Name</fieldText>
                     <fieldType>InputField</fieldType>
-                    <isRequired>true</isRequired>
-                </fields>
-                <fields>
-                    <name>Priority</name>
-                    <choiceReferences>varCasePriority</choiceReferences>
-                    <dataType>String</dataType>
-                    <fieldText>Priority</fieldText>
-                    <fieldType>DropdownBox</fieldType>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -182,22 +141,21 @@
                 <isRequired>false</isRequired>
             </fields>
             <fields>
-                <name>Case_Information_Section1_Column2</name>
+                <name>Opp_Information_Section1_Column2</name>
                 <fieldType>Region</fieldType>
                 <fields>
-                    <name>Status</name>
+                    <name>Stage</name>
                     <choiceReferences>varCaseStatus</choiceReferences>
                     <dataType>String</dataType>
-                    <fieldText>Status</fieldText>
+                    <fieldText>Stage</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
-                    <name>Case_Origin</name>
-                    <choiceReferences>varCaseOrigin</choiceReferences>
-                    <dataType>String</dataType>
-                    <fieldText>Case Origin</fieldText>
-                    <fieldType>DropdownBox</fieldType>
+                    <name>Close_Date</name>
+                    <dataType>Date</dataType>
+                    <fieldText>Close Date</fieldText>
+                    <fieldType>InputField</fieldType>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -252,12 +210,6 @@
             </fields>
             <isRequired>false</isRequired>
         </fields>
-        <fields>
-            <name>Description</name>
-            <fieldText>Description</fieldText>
-            <fieldType>LargeTextArea</fieldType>
-            <isRequired>true</isRequired>
-        </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
@@ -265,7 +217,7 @@
         <locationX>50</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Case_Information</targetReference>
+            <targetReference>Opp_Information</targetReference>
         </connector>
     </start>
     <status>Active</status>
