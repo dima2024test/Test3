@@ -47,46 +47,6 @@
         </value>
     </processMetadataValues>
     <processType>Flow</processType>
-    <recordCreates>
-        <name>Create_Opp</name>
-        <label>Create Opp</label>
-        <locationX>50</locationX>
-        <locationY>458</locationY>
-        <connector>
-            <targetReference>SuccessScreen</targetReference>
-        </connector>
-        <inputAssignments>
-            <field>CloseDate</field>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Name</field>
-        </inputAssignments>
-        <inputAssignments>
-            <field>StageName</field>
-        </inputAssignments>
-        <object>Opportunity</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordCreates>
-    <recordCreates>
-        <name>Opp_2</name>
-        <label>Opp 2</label>
-        <locationX>314</locationX>
-        <locationY>458</locationY>
-        <connector>
-            <targetReference>SuccessScreen</targetReference>
-        </connector>
-        <inputAssignments>
-            <field>CloseDate</field>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Name</field>
-        </inputAssignments>
-        <inputAssignments>
-            <field>StageName</field>
-        </inputAssignments>
-        <object>Opportunity</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordCreates>
     <recordLookups>
         <name>Get_Contact_Record</name>
         <label>Get Contact Record</label>
@@ -112,16 +72,16 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <screens>
-        <name>SuccessScreen</name>
-        <label>SuccessScreen</label>
+        <name>Result</name>
+        <label>Result</label>
         <locationX>182</locationX>
-        <locationY>650</locationY>
+        <locationY>542</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <fields>
             <name>Success</name>
-            <fieldText>&lt;p&gt;Case Record Created Succcessfully2&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;Test&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
@@ -141,7 +101,7 @@
         <locationX>50</locationX>
         <locationY>350</locationY>
         <connector>
-            <targetReference>Create_Opp</targetReference>
+            <targetReference>Result</targetReference>
         </connector>
         <flowName>Subflow_Create_Case_record</flowName>
         <inputAssignments>
@@ -165,7 +125,7 @@
         <locationX>314</locationX>
         <locationY>350</locationY>
         <connector>
-            <targetReference>Opp_2</targetReference>
+            <targetReference>Result</targetReference>
         </connector>
         <flowName>Subflow_Create_Case_record</flowName>
         <inputAssignments>

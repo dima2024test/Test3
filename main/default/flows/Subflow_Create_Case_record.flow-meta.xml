@@ -52,6 +52,9 @@
         <locationX>176</locationX>
         <locationY>242</locationY>
         <assignRecordIdToReference>varCaseId</assignRecordIdToReference>
+        <connector>
+            <targetReference>Opp</targetReference>
+        </connector>
         <faultConnector>
             <targetReference>SubFlow_Erro_Flow</targetReference>
         </faultConnector>
@@ -62,6 +65,23 @@
             </value>
         </inputAssignments>
         <object>Case</object>
+    </recordCreates>
+    <recordCreates>
+        <name>Opp</name>
+        <label>Opp</label>
+        <locationX>176</locationX>
+        <locationY>350</locationY>
+        <inputAssignments>
+            <field>CloseDate</field>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Name</field>
+        </inputAssignments>
+        <inputAssignments>
+            <field>StageName</field>
+        </inputAssignments>
+        <object>Opportunity</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <screens>
         <name>Case_Information</name>
