@@ -23,27 +23,18 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordCreates>
-        <name>Opp</name>
-        <label>Opp</label>
+        <name>Case</name>
+        <label>Case</label>
         <locationX>176</locationX>
         <locationY>323</locationY>
-        <inputAssignments>
-            <field>CloseDate</field>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Name</field>
-        </inputAssignments>
-        <inputAssignments>
-            <field>StageName</field>
-        </inputAssignments>
-        <object>Opportunity</object>
+        <object>Case</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <start>
         <locationX>50</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Opp</targetReference>
+            <targetReference>Case</targetReference>
         </connector>
         <object>Account</object>
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
