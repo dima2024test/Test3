@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>TEstUpdateField__c</fullName>
-    <defaultValue>false</defaultValue>
+    <businessStatus>Hidden</businessStatus>
+    <defaultValue>true</defaultValue>
+    <description>Test</description>
     <externalId>false</externalId>
-    <label>TEstUpdateField</label>
+    <inlineHelpText>Test</inlineHelpText>
+    <label>TEstUpdateField Updated</label>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Checkbox</type>

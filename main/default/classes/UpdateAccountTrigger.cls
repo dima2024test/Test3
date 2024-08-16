@@ -8,7 +8,7 @@ public class UpdateAccountTrigger implements Queueable
 
     {
 
-        AccountsToUpdate = TriggeredAccList ;
+        AccountsToUpdate = TriggeredAccList ;//Test Updated
 
     }
 
@@ -20,7 +20,7 @@ public class UpdateAccountTrigger implements Queueable
 
         {
 
-            if (acc.Type == 'Prospect')
+            if (acc.Type == 'Customer - Direct')
 
             {
 
