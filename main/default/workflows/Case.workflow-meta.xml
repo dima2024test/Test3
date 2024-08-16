@@ -10,14 +10,4 @@
         <protected>false</protected>
         <reevaluateOnChange>false</reevaluateOnChange>
     </fieldUpdates>
-    <fieldUpdates>
-        <fullName>TEstDELETEWFRule</fullName>
-        <field>Status</field>
-        <literalValue>Working</literalValue>
-        <name>TEstDELETEWFRule</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-        <reevaluateOnChange>false</reevaluateOnChange>
-    </fieldUpdates>
 </Workflow>

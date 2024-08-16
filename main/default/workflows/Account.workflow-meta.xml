@@ -2,8 +2,9 @@
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <fieldUpdates>
         <fullName>TestUpdateWorkflowRule</fullName>
+        <description>Updated</description>
         <field>Type</field>
-        <literalValue>Prospect</literalValue>
+        <literalValue>Customer - Channel</literalValue>
         <name>TestUpdateWorkflowRule</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
